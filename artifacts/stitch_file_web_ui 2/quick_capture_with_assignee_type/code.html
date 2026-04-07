@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPSTRACKER | QUICK CAPTURE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#111318",
+                    "surface-bright": "#37393e",
+                    "surface-container-high": "#282a2e",
+                    "on-background": "#e2e2e8",
+                    "secondary-fixed-dim": "#4de082",
+                    "outline-variant": "#424754",
+                    "surface-tint": "#adc6ff",
+                    "on-primary-fixed": "#001a42",
+                    "surface-container": "#1e2024",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#004395",
+                    "primary-container": "#4d8eff",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1a1c20",
+                    "on-tertiary-fixed": "#410004",
+                    "surface-container-lowest": "#0c0e12",
+                    "tertiary": "#ffb3ad",
+                    "inverse-primary": "#005ac2",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-surface": "#e2e2e8",
+                    "surface-container-highest": "#333539",
+                    "on-tertiary": "#68000a",
+                    "outline": "#8c909f",
+                    "on-secondary": "#003919",
+                    "primary": "#adc6ff",
+                    "on-secondary-fixed": "#00210c",
+                    "surface-variant": "#333539",
+                    "on-tertiary-container": "#5c0008",
+                    "inverse-surface": "#e2e2e8",
+                    "primary-fixed": "#d8e2ff",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#111318",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#00285d",
+                    "on-surface-variant": "#c2c6d6",
+                    "on-secondary-fixed-variant": "#005227",
+                    "secondary-container": "#00b55d",
+                    "tertiary-fixed": "#ffdad7",
+                    "tertiary-container": "#ff5451",
+                    "on-primary": "#002e6a",
+                    "inverse-on-surface": "#2f3035",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "on-secondary-container": "#003e1c",
+                    "secondary-fixed": "#6dfe9c",
+                    "surface": "#111318",
+                    "secondary": "#4de082"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-label { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-hidden">
+<!-- Top Navigation Anchor (Per JSON Mapping) -->
+<header class="flex justify-between items-center w-full px-6 h-16 bg-[#111318] docked full-width top-0 border-none z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#adc6ff]" data-icon="terminal">terminal</span>
+<span class="text-2xl font-bold tracking-[0.2em] text-[#adc6ff] font-['Space_Grotesk'] tracking-tighter uppercase">OPSTRACKER</span>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex gap-6 font-['Space_Grotesk'] uppercase tracking-[0.1em] text-xs">
+<a class="text-[#8c909f] hover:bg-[#333539] transition-colors" href="#">Task Board</a>
+<a class="text-[#8c909f] hover:bg-[#333539] transition-colors" href="#">List View</a>
+<a class="text-[#8c909f] hover:bg-[#333539] transition-colors" href="#">My Tasks</a>
+<a class="text-[#adc6ff] border-b-2 border-[#adc6ff] hover:bg-[#333539] transition-colors" href="#">Quick Capture</a>
+</nav>
+<button class="font-['Space_Grotesk'] tracking-tighter uppercase text-[#adc6ff] px-4 py-1 border border-[#adc6ff]/30 hover:bg-[#333539]">ADMIN</button>
+</div>
+</header>
+<!-- Side Navigation Anchor (Hidden on Mobile) -->
+<aside class="fixed left-0 top-0 h-full z-40 bg-[#1a1c20] w-64 hidden md:flex flex-col border-r border-[#333539]/20 pt-20">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[10px] text-primary font-bold">OPERATOR_01</p>
+<p class="text-[9px] text-outline uppercase tracking-widest">CORE_UNIT</p>
+</div>
+</div>
+<nav class="flex flex-col">
+<a class="flex items-center gap-4 px-6 py-4 text-[#8c909f] hover:bg-[#1e2024] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-xs" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span> Task Board
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#8c909f] hover:bg-[#1e2024] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-xs" href="#">
+<span class="material-symbols-outlined" data-icon="view_list">view_list</span> List View
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#8c909f] hover:bg-[#1e2024] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-xs" href="#">
+<span class="material-symbols-outlined" data-icon="person_pin">person_pin</span> My Tasks
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 bg-[#333539] text-[#adc6ff] border-l-4 border-[#adc6ff] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-xs" href="#">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span> Quick Capture
+            </a>
+</nav>
+</aside>
+<!-- Main Content Canvas (Background Dashboard) -->
+<main class="md:ml-64 pt-6 px-6 pb-24 grid grid-cols-12 gap-6 opacity-40 grayscale pointer-events-none">
+<!-- Dashboard Mockup to provide context for the modal -->
+<div class="col-span-12 md:col-span-8 space-y-6">
+<div class="h-64 bg-surface-container-low p-6">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tighter uppercase">Operations Hub</h2>
+<p class="font-label text-[10px] text-outline tracking-[0.2em]">SYSTEM_STATUS: NOMINAL</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="bg-surface-container p-4 border-l-4 border-primary">
+<p class="font-label text-[10px] text-outline">ACTIVE_THREADS</p>
+<p class="font-headline text-2xl font-bold">14</p>
+</div>
+<div class="bg-surface-container p-4 border-l-4 border-secondary">
+<p class="font-label text-[10px] text-outline">COMPLETED</p>
+<p class="font-headline text-2xl font-bold">128</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6">
+<h3 class="font-headline text-sm font-bold uppercase tracking-widest mb-4">Live Task Feed</h3>
+<div class="space-y-3">
+<div class="h-12 bg-surface-container"></div>
+<div class="h-12 bg-surface-container-highest"></div>
+<div class="h-12 bg-surface-container"></div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-low p-6 h-fit">
+<h3 class="font-headline text-sm font-bold uppercase tracking-widest mb-6">Unit Distribution</h3>
+<div class="aspect-square bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-outline-variant" data-icon="monitoring">monitoring</span>
+</div>
+</div>
+</main>
+<!-- QUICK CAPTURE MODAL OVERLAY -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center px-4">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-background/80 backdrop-blur-md"></div>
+<!-- Modal Container -->
+<div class="relative w-full max-w-xl bg-surface-container-low border border-outline-variant/30 shadow-[0_40px_100px_rgba(0,0,0,0.8)] flex flex-col">
+<!-- Header -->
+<div class="flex justify-between items-center px-6 py-4 bg-surface-container-highest border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+<h2 class="font-headline text-lg font-bold tracking-widest uppercase">Quick Capture</h2>
+</div>
+<button class="text-outline hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Form Content -->
+<div class="p-8 space-y-8">
+<!-- Task Title (Focused State) -->
+<div class="space-y-2">
+<label class="block font-label text-[10px] text-primary tracking-[0.2em] font-bold uppercase">Task Title</label>
+<div class="relative">
+<input autofocus="" class="w-full bg-surface-container-lowest border-none border-b-2 border-primary focus:ring-0 text-on-surface font-headline text-xl p-4 placeholder:text-outline/30 uppercase tracking-tight transition-all" placeholder="ENTER MISSION OBJECTIVE..." type="text"/>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary shadow-[0_0_10px_#4d8eff]"></div>
+</div>
+</div>
+<!-- Split Grid -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Assignee -->
+<div class="space-y-4">
+<!-- Assignee Type -->
+<div class="space-y-2">
+<label class="block font-label text-[10px] text-outline tracking-[0.2em] uppercase">Assignee Type</label>
+<div class="relative group">
+<select class="w-full bg-surface-container appearance-none border-none text-on-surface font-body text-sm py-3 px-4 focus:ring-1 focus:ring-primary/50 uppercase tracking-widest cursor-pointer">
+<option value="individual">INDIVIDUAL_OPERATOR</option>
+<option value="team">TACTICAL_TEAM</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none group-hover:text-primary transition-colors" data-icon="group_work">group_work</span>
+</div>
+</div>
+<!-- Assignee -->
+<div class="space-y-2">
+<label class="block font-label text-[10px] text-outline tracking-[0.2em] uppercase">Select Unit</label>
+<div class="relative group">
+<select class="w-full bg-surface-container appearance-none border-none text-on-surface font-body text-sm py-3 px-4 focus:ring-1 focus:ring-primary/50 uppercase tracking-widest cursor-pointer">
+<option>SEARCH_UNITS...</option>
+<option>OPERATOR_01</option>
+<option>OPERATOR_02</option>
+<option>ALPHA_SQUAD</option>
+<option>OMEGA_UNIT</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none group-hover:text-primary transition-colors" data-icon="person_search">person_search</span>
+</div>
+</div>
+</div>
+<!-- Priority -->
+<div class="space-y-2">
+<label class="block font-label text-[10px] text-outline tracking-[0.2em] uppercase">Priority</label>
+<div class="relative">
+<select class="w-full bg-surface-container appearance-none border-none text-on-surface font-body text-sm py-3 px-4 focus:ring-1 focus:ring-primary/50 uppercase tracking-widest">
+<option>LOW</option>
+<option>MEDIUM</option>
+<option selected="">HIGH</option>
+<option class="text-error">CRITICAL</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="priority_high">priority_high</span>
+</div>
+</div>
+</div>
+<!-- Notes -->
+<div class="space-y-2">
+<label class="block font-label text-[10px] text-outline tracking-[0.2em] uppercase">Notes</label>
+<textarea class="w-full bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary/30 text-on-surface font-body text-sm p-4 placeholder:text-outline/30 resize-none" placeholder="ADDITIONAL PARAMETERS..." rows="3"></textarea>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-6 bg-surface-container-lowest border-t border-outline-variant/10">
+<button class="w-full bg-secondary-container text-on-secondary-container py-5 font-headline font-black text-lg tracking-[0.3em] uppercase flex items-center justify-center gap-3 hover:bg-secondary transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="add_task">add_task</span>
+                    + CREATE TASK
+                </button>
+<div class="mt-4 flex justify-between items-center text-[9px] font-label text-outline/50 tracking-widest">
+<span>SYSTEM_ORIGIN: WEB_TERMINAL_V4</span>
+<span>TIMESTAMP: 2024.05.12_14:02:00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Nav (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center h-16 bg-[#111318] z-50 border-t border-[#333539]/15">
+<button class="flex flex-col items-center justify-center text-[#8c909f] p-2 hover:text-white transition-transform scale-95">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold tracking-widest">BOARD</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#8c909f] p-2 hover:text-white transition-transform scale-95">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold tracking-widest">LIST</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#8c909f] p-2 hover:text-white transition-transform scale-95">
+<span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold tracking-widest">TASKS</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#adc6ff] text-[#002e6a] p-2 scale-95">
+<span class="material-symbols-outlined" data-icon="add_task">add_task</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-bold tracking-widest">ADD</span>
+</button>
+</nav>
+</body></html>

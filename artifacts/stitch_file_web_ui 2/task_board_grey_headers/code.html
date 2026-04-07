@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPSTRACKER | MISSION_CONTROL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#0c0e12",
+                        "surface-bright": "#37393e",
+                        "surface-container-high": "#1a1c20",
+                        "on-background": "#e2e2e8",
+                        "secondary-fixed-dim": "#4de082",
+                        "outline-variant": "#282a2e",
+                        "surface-tint": "#adc6ff",
+                        "on-primary-fixed": "#001a42",
+                        "surface-container": "#111318",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#004395",
+                        "primary-container": "#4d8eff",
+                        "on-error": "#690005",
+                        "surface-container-low": "#0c0e12",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-container-lowest": "#080a0c",
+                        "tertiary": "#ffb3ad",
+                        "inverse-primary": "#005ac2",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-surface": "#e2e2e8",
+                        "surface-container-highest": "#282a2e",
+                        "on-tertiary": "#68000a",
+                        "outline": "#424754",
+                        "on-secondary": "#003919",
+                        "primary": "#adc6ff",
+                        "on-secondary-fixed": "#00210c",
+                        "surface-variant": "#1a1c20",
+                        "on-tertiary-container": "#5c0008",
+                        "inverse-surface": "#e2e2e8",
+                        "primary-fixed": "#d8e2ff",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#0c0e12",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#00285d",
+                        "on-surface-variant": "#8c909f",
+                        "on-secondary-fixed-variant": "#005227",
+                        "secondary-container": "#00b55d",
+                        "tertiary-fixed": "#ffdad7",
+                        "tertiary-container": "#ff5451",
+                        "on-primary": "#002e6a",
+                        "inverse-on-surface": "#2f3035",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-secondary-container": "#003e1c",
+                        "secondary-fixed": "#6dfe9c",
+                        "surface": "#0c0e12",
+                        "secondary": "#4de082"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-track { background: #0c0e12; }
+        ::-webkit-scrollbar-thumb { background: #282a2e; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+<style>
+        body { min-height: 100dvh; }
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-subtle-pulse {
+            animation: subtle-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary selection:text-on-primary font-body">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 h-16 bg-surface-container-lowest flex justify-between items-center px-6 border-b border-outline/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<h1 class="text-xl font-medium tracking-[0.15em] text-on-surface font-headline uppercase">OPSTRACKER</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-6 font-headline text-[10px] tracking-widest text-on-surface-variant uppercase">
+<a class="text-primary" href="#">Board</a>
+<a class="hover:text-primary transition-colors" href="#">List</a>
+<a class="hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+<button class="bg-surface-container-highest text-primary px-3 py-1 font-headline text-[9px] tracking-widest border border-outline/10 hover:border-primary/30 transition-all uppercase">
+            Admin
+        </button>
+</div>
+</header>
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest hidden lg:flex flex-col z-40 border-r border-outline/10">
+<div class="p-6 mt-16 flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">person</span>
+</div>
+<div>
+<div class="font-headline font-bold text-on-surface text-[10px] tracking-widest uppercase">Operator_01</div>
+<div class="font-headline text-[9px] text-on-surface-variant tracking-wider uppercase">Active</div>
+</div>
+</div>
+<nav class="flex flex-col gap-0.5">
+<a class="flex items-center gap-3 p-2.5 bg-surface-container text-primary font-headline uppercase tracking-[0.1em] text-[10px]" href="#">
+<span class="material-symbols-outlined text-base">grid_view</span> Task Board
+            </a>
+<a class="flex items-center gap-3 p-2.5 text-on-surface-variant hover:bg-surface-container/50 font-headline uppercase tracking-[0.1em] text-[10px] transition-colors" href="#">
+<span class="material-symbols-outlined text-base">view_list</span> List View
+            </a>
+<a class="flex items-center gap-3 p-2.5 text-on-surface-variant hover:bg-surface-container/50 font-headline uppercase tracking-[0.1em] text-[10px] transition-colors" href="#">
+<span class="material-symbols-outlined text-base">person_pin</span> My Tasks
+            </a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-16 lg:pl-64 min-h-screen">
+<div class="p-8 max-w-[1400px] mx-auto">
+<!-- Summary Strip: Reduced Visual Weight -->
+<div class="flex flex-wrap gap-12 mb-12 border-b border-outline/5 pb-8">
+<div class="flex flex-col">
+<span class="font-headline text-[9px] text-on-surface-variant tracking-widest uppercase mb-1">New</span>
+<span class="text-2xl font-headline font-medium text-on-surface">12</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-[9px] text-primary tracking-widest uppercase mb-1">Ongoing</span>
+<span class="text-2xl font-headline font-medium text-primary">08</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-[9px] text-error tracking-widest uppercase mb-1">Closed</span>
+<span class="text-2xl font-headline font-medium text-error">03</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-[9px] text-secondary tracking-widest uppercase mb-1">Archive</span>
+<span class="text-2xl font-headline font-medium text-secondary">42</span>
+</div>
+</div>
+<!-- Kanban Header Controls -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline text-xl font-medium tracking-tight uppercase">Operational Grid</h2>
+<p class="font-headline text-[9px] text-on-surface-variant tracking-widest mt-1 uppercase">Sector_7G // SYNC_OK</p>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1.5 font-headline font-bold text-[10px] tracking-widest flex items-center gap-2 hover:opacity-90 transition-all uppercase">
+<span class="material-symbols-outlined text-sm">add</span> New Task
+            </button>
+</div>
+<!-- Kanban Columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start">
+<!-- NEW Column -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center border-b border-outline/10 pb-2">
+<span class="font-headline font-bold text-[10px] tracking-[0.2em] uppercase text-on-surface-variant">01 // New</span>
+<span class="text-[10px] font-headline text-on-surface-variant/50">12</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Task Card: Critical -->
+<div class="bg-surface-container p-5 hover:bg-surface-container-highest transition-all group border-l-2 border-error" style="border-color: #ef4444;">
+<div class="flex justify-between items-center mb-3" style="border-color: rgba(59, 130, 246, 0.2);">
+<div class="flex items-center gap-2" style="border-color: rgba(59, 130, 246, 0.2);">
+<span class="text-[9px] font-headline text-error tracking-widest font-bold uppercase" style="color: #ef4444;">Critical</span>
+<span class="text-[8px] font-headline px-1.5 py-0.5 tracking-tight uppercase border animate-subtle-pulse" style="color: #ef4444; background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);">Updated</span><span class="text-[8px] font-headline ml-1 text-on-surface-variant/60 tracking-tight uppercase">14:32</span>
+</div>
+<span class="text-[9px] font-headline text-on-surface-variant/40">#TR-882</span>
+</div>
+<h3 class="text-xs font-medium leading-relaxed mb-4 uppercase tracking-wide text-on-surface">Kernel panic in staging environment</h3>
+<div class="flex justify-between items-center">
+<img class="w-5 h-5 grayscale opacity-50 group-hover:opacity-100 transition-all" data-alt="operator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0kTonAMfOOYo_EiJyN_1Vcwi9SoxLob3cGiFnDpPONyzgY5FsXnTEqnuSU6wQ41CM8CzZwqhe85nhdm3MECZVZsHkuN4XPfgoM9XYvvEXMQm5MM1217SDutSqVvusgGmzw3CXgdUZpERm50HfwoFaUUnn2MNIIiUx4Mu2TTGz6Tk-tiv7FsrhDWlEVrT66iG1pjjvZY1q9lqingQAen_otFBERDPqJ2kRVDo_S8hdlWiHzlr_j3jwV2ShYgx3URmICmPvVs6SiTg"/>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Task Card: Low -->
+<div class="bg-surface-container p-5 hover:bg-surface-container-highest transition-all group border-l-2 border-outline">
+<div class="flex justify-between items-center mb-3" style="border-color: rgba(59, 130, 246, 0.2);">
+<span class="text-[9px] font-headline text-on-surface-variant tracking-widest font-bold uppercase" style="color: #4ade80;">Low</span>
+<span class="text-[9px] font-headline text-on-surface-variant/40">#TR-901</span>
+</div>
+<h3 class="text-xs font-medium leading-relaxed mb-4 uppercase tracking-wide text-on-surface">Update documentation for API v2</h3>
+<div class="flex justify-between items-center">
+<img class="w-5 h-5 grayscale opacity-50 group-hover:opacity-100 transition-all" data-alt="engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtz1JNhvWlZv2T7nQLbwuG8YuYoxnFgCGdnFGZwMZFQyqf3cRLcNlIwvlR6FcyXinX58QltmDTU42Pf1kWlFXwTrxHKBoYFXVcT945D9hj-isLb8CCPWvfO9rlgTx3C2t_nl5Oa5DKe_EiIxLpqsnUVYgiQTpL9FMgVaVMe4jBNAeyWnWMaxhZVKiI62fe2STtPdDxGGI0ToWvposLPhDlG3aq1g_qFqKRwMWerjFGRRhwINb8h7depaz85cWvKqXVbOiPqig17Vk"/>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ONGOING Column -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center border-b border-outline/10 pb-2">
+<span class="font-headline font-bold text-[10px] tracking-[0.2em] uppercase text-on-surface-variant">02 // Ongoing</span>
+<span class="text-[10px] font-headline text-primary/50">08</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Task Card: High -->
+<div class="bg-surface-container p-5 hover:bg-surface-container-highest transition-all group border-l-2 border-tertiary" style="border-color: #f59e0b;">
+<div class="flex justify-between items-center mb-3" style="border-color: rgba(245, 158, 11, 0.2);">
+<div class="flex items-center gap-2" style="border-color: rgba(245, 158, 11, 0.2);">
+<span class="text-[9px] font-headline text-tertiary tracking-widest font-bold uppercase text-on-surface-variant" style="color: #f59e0b;">High</span>
+<span class="text-[8px] font-headline px-1.5 py-0.5 tracking-tight uppercase border animate-subtle-pulse" style="color: #ef4444; background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);">Updated</span><span class="text-[8px] font-headline ml-1 text-on-surface-variant/60 tracking-tight uppercase">14:32</span>
+</div>
+<span class="text-[9px] font-headline text-on-surface-variant/40">#TR-764</span>
+</div>
+<h3 class="text-xs font-medium leading-relaxed mb-4 uppercase tracking-wide text-on-surface">Syncing data to orbital node B</h3>
+<div class="flex justify-between items-center">
+<img class="w-5 h-5 grayscale opacity-50 group-hover:opacity-100 transition-all" data-alt="technician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYkAWVZ7jMoL9T7dXWtuTYAJ_beCo8LQ90BuQj_t_8e8DUsoA_TYHUJec6t9Y0KIRJIO8jk4Qn2gIXQr8HxKTVh49xYQ6aJTz3hWXXFZUsSMX8h1f0v8qJsVLHYHxqyqFVmYalB-JNqMw93JDaMciY2f6JklFh_mQ5hMG9XW0PAYPKTuaj659IfJRcY2qPP_ratpZznCvxBFy_CayFNWTNc7_lvyvWX6DZ6tm39UgBFZnS5K5v-cFbmil7fEPepXcVw2_W9b07zn4"/>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CLOSED Column -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center border-b border-outline/10 pb-2">
+<span class="font-headline font-bold text-[10px] tracking-[0.2em] uppercase text-on-surface-variant">03 // Closed</span>
+<span class="text-[10px] font-headline text-error/50">03</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Task Card: Critical -->
+<div class="bg-surface-container p-5 hover:bg-surface-container-highest transition-all group border-l-2 border-error" style="border-color: #ef4444;">
+<div class="flex justify-between items-center mb-3" style="border-color: rgba(16, 185, 129, 0.2);">
+<div class="flex items-center gap-2" style="border-color: rgba(16, 185, 129, 0.2);">
+<span class="text-[9px] font-headline tracking-widest font-bold uppercase text-on-surface-variant" style="color: #ef4444;">Critical</span>
+<span class="text-[8px] font-headline px-1.5 py-0.5 tracking-tight uppercase border animate-subtle-pulse" style="color: #ef4444; background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);">Updated</span><span class="text-[8px] font-headline ml-1 text-on-surface-variant/60 tracking-tight uppercase">14:32</span>
+</div>
+<span class="text-[9px] font-headline text-on-surface-variant/40">#TR-661</span>
+</div>
+<h3 class="text-xs font-medium leading-relaxed mb-4 uppercase tracking-wide text-on-surface">Hardware failure: Rack 4 power supply</h3>
+<div class="flex justify-between items-center">
+<img class="w-5 h-5 grayscale opacity-50 group-hover:opacity-100 transition-all" data-alt="specialist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrrmlNlxofKcTBEVIV7H3PXTCuJkzNbffDcsfFxA-9xiUiA7VAS0aARH7TXNAsOoxQngz-L7k7rqmF5ZkH9EXMEOfNC9gINvceSYM1I5FzJeyZtLR2eUX4MDi3w1D_IsfMja-3k4RvYat7ge8bA7VrGV7HIWgMXCPRh1o4MsAtOPLnK0gUuhTfzy3PoC2zGKxuDwAgzuzXtnphlbNY1tYYrq5DNIeiAJ2O2kVe1eKOhEAD6JrEX8kkKEW-T1nbQs2-4YgvqnIsfms"/>
+<span class="material-symbols-outlined text-error/50 text-sm group-hover:text-error transition-colors">warning</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ARCHIVE Column -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center border-b border-outline/10 pb-2">
+<span class="font-headline font-bold text-[10px] tracking-[0.2em] uppercase text-on-surface-variant">04 // Archive</span>
+<span class="text-[10px] font-headline text-secondary/50">42</span>
+</div>
+<div class="flex flex-col gap-4 opacity-40 grayscale">
+<div class="bg-surface-container-low p-4 border border-outline/5" style="border-color: rgba(107, 114, 128, 0.2);">
+<div class="flex justify-between items-center mb-2" style="border-color: rgba(107, 114, 128, 0.2);">
+<span class="text-[8px] font-headline text-on-surface-variant tracking-widest font-bold uppercase" style="color: #6b7280;">Archived</span>
+<span class="text-[8px] font-headline text-on-surface-variant/30">#TR-221</span>
+</div>
+<h3 class="text-[11px] font-medium leading-tight uppercase tracking-wide text-on-surface-variant line-through">SSL certificate renewal</h3>
+</div>
+<div class="bg-surface-container-low p-4 border border-outline/5">
+<div class="flex justify-between items-center mb-2" style="border-color: rgba(107, 114, 128, 0.2);">
+<span class="text-[8px] font-headline text-on-surface-variant tracking-widest font-bold uppercase" style="color: #6b7280;">Archived</span>
+<span class="text-[8px] font-headline text-on-surface-variant/30">#TR-312</span>
+</div>
+<h3 class="text-[11px] font-medium leading-tight uppercase tracking-wide text-on-surface-variant line-through">DB migration to cloud_shards</h3>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest flex justify-around items-center z-50 border-t border-outline/10">
+<button class="flex flex-col items-center justify-center text-primary p-2 flex-1">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="font-headline text-[8px] font-bold tracking-widest mt-1">BOARD</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 flex-1">
+<span class="material-symbols-outlined text-xl">list_alt</span>
+<span class="font-headline text-[8px] font-bold tracking-widest mt-1">LIST</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 flex-1">
+<span class="material-symbols-outlined text-xl">assignment_ind</span>
+<span class="font-headline text-[8px] font-bold tracking-widest mt-1">TASKS</span>
+</button>
+</nav>
+<!-- FAB Mobile -->
+<div class="fixed bottom-20 right-6 z-40 lg:hidden">
+<button class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</body></html>
