@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --background: #111318;
+  --foreground: #e0e0e0;
+  --surface-container-low: #1a1c20;
+  --surface-container: #1e2024;
+  --surface-container-high: #282a2e;
+  --surface-container-highest: #333539;
+  --accent: #4fc3f7;
+  --accent-dim: #2a8ab5;
+  --error: #ef5350;
+  --error-dim: #c62828;
+  --success: #66bb6a;
+  --warning: #ffa726;
+  --text-primary: #e0e0e0;
+  --text-secondary: #9e9e9e;
+  --text-disabled: #616161;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-ghost: rgba(255, 255, 255, 0.15);
+  --priority-critical: #ef5350;
+  --priority-high: #ffa726;
+  --priority-medium: #4fc3f7;
+  --priority-low: #9e9e9e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface-low: var(--surface-container-low);
+  --color-surface: var(--surface-container);
+  --color-surface-high: var(--surface-container-high);
+  --color-surface-highest: var(--surface-container-highest);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-error: var(--error);
+  --color-error-dim: var(--error-dim);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-disabled: var(--text-disabled);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-ghost: var(--border-ghost);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

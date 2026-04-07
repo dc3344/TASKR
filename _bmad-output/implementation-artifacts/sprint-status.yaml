@@ -43,7 +43,7 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   epic-1: in-progress
-  1-1-login-screen-gating-role-selection: ready-for-dev
+  1-1-login-screen-gating-role-selection: done
   1-2-pin-authentication-flow-6-digit-keypad: backlog
   1-3-magic-link-request-flow-demo: backlog
   1-4-logout-inactivity-timeout-deep-link-protection: backlog
