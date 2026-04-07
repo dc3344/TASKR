@@ -57,17 +57,29 @@ Search for required documents using these patterns (sharded means a large docume
 **PRD Document Search Priority:**
 
 1. `{planning_artifacts}/*prd*.md` (whole document)
-2. `{planning_artifacts}/*prd*/index.md` (sharded version)
+2. `{project_knowledge}/*prd*.md` (whole document; commonly `docs/`)
+3. `{implementation_artifacts}/*prd*.md` (whole document; if copied into artifacts)
+4. `{planning_artifacts}/*prd*/index.md` (sharded version)
+5. `{project_knowledge}/*prd*/index.md` (sharded version)
+6. `{implementation_artifacts}/*prd*/index.md` (sharded version)
 
 **Architecture Document Search Priority:**
 
 1. `{planning_artifacts}/*architecture*.md` (whole document)
-2. `{planning_artifacts}/*architecture*/index.md` (sharded version)
+2. `{project_knowledge}/*architecture*.md` (whole document; commonly `docs/`)
+3. `{implementation_artifacts}/*architecture*.md` (whole document; if copied into artifacts)
+4. `{planning_artifacts}/*architecture*/index.md` (sharded version)
+5. `{project_knowledge}/*architecture*/index.md` (sharded version)
+6. `{implementation_artifacts}/*architecture*/index.md` (sharded version)
 
 **UX Design Document Search (Optional):**
 
 1. `{planning_artifacts}/*ux*.md` (whole document)
-2. `{planning_artifacts}/*ux*/index.md` (sharded version)
+2. `{project_knowledge}/*ux*.md` (whole document; commonly `docs/`)
+3. `{implementation_artifacts}/*ux*.md` (whole document; if copied into artifacts)
+4. `{planning_artifacts}/*ux*/index.md` (sharded version)
+5. `{project_knowledge}/*ux*/index.md` (sharded version)
+6. `{implementation_artifacts}/*ux*/index.md` (sharded version)
 
 Before proceeding, Ask the user if there are any other documents to include for analysis, and if anything found should be excluded. Wait for user confirmation. Once confirmed, create the {planning_artifacts}/epics.md from the ../templates/epics-template.md and in the front matter list the files in the array of `inputDocuments: []`.
 
